@@ -1,0 +1,338 @@
+/* ---------- Base styles (all screen widths) ---------- */
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: #754974;
+	font-family: 'Indie Flower', cursive;
+	font-size: 1.2em;
+	color: #FFF;
+}
+
+.bg1 {
+	background-image: url("Images/bg1.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	min-height: 100vh;
+	min-height: 100svh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bg1 header {
+	width: 100%;
+}
+
+.bg2 {
+	background-image: url("Images/bg2-5.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	min-height: 100vh;
+	min-height: 100svh;
+}
+
+
+#avi {
+	display: block;
+	margin: auto;
+	border-bottom-left-radius: 5em;
+	border-bottom-right-radius: 6em;
+	max-width: 300px;
+	max-height: 300px;
+}
+
+.Hi {
+	text-align: center;
+	margin: auto;
+	color: #C97581;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+section {
+	padding: 50px;
+	position: relative;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+section img {
+	width: 100%;
+}
+
+h2, h3 {
+	margin: auto;
+	padding: 0;
+}
+
+p {
+	margin-top: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #FFF;
+	padding: 0;
+	font-weight: 600;
+	font-size: 1.5em;
+}
+
+footer {
+	position: relative;
+}
+
+.social {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	border-style: none;
+	background: none;
+}
+
+.social a {
+	margin: 0;
+	padding: 0;
+}
+
+/* Social icons (SVG used as a mask, colored via background-color) */
+.social img {
+	width: 20px;
+	height: 20px;
+	margin: 0 6px;
+	filter: invert(1);
+	transition: opacity .2s;
+}
+
+.social a:hover img {
+	opacity: .7;
+}
+
+.inner {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 350px;
+	padding: 5px 20px;
+	height: 230px;
+	border-radius: 1.5em;
+	border-style: double;
+	border-color: #FFF;
+	background-color: rgba(117, 73, 116, 0.4);
+	text-align: center;
+}
+
+.inner span {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	background-color: #754974;
+	padding: 6px;
+	border-radius: 5px;
+}
+
+.inner p {
+	margin-top: 10px;
+}
+
+
+
+/* ---------- 700px and wider ---------- */
+
+@media only screen and (min-width: 700px) {
+
+	.bg2 {
+		background-image: url("Images/bg2.jpg");
+	}
+
+	section img {
+		width: auto;
+		margin: auto;
+		display: block;
+	}
+
+}
+
+
+/* ---------- 1400px and wider ---------- */
+
+@media only screen and (min-width: 1400px) {
+
+	section img {
+		position: absolute;
+		top: 18%;
+		right: 150px;
+	}
+
+}
+
+
+/* ================= Glitch / CRT effects ================= */
+
+/* Glitch text (needs class="glitch" and data-text="..." on the element) */
+.glitch {
+	position: relative;
+	animation: name-shift 3s infinite steps(1);
+}
+
+.glitch::before,
+.glitch::after {
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	clip-path: inset(0 0 100% 0);
+}
+
+.glitch::before {
+	color: #00e5ff;
+	animation: glitch-a 3s infinite steps(1);
+}
+
+.glitch::after {
+	color: #ff2d95;
+	animation: glitch-b 3s infinite steps(1);
+}
+
+h2.glitch::before,
+h2.glitch::after {
+	text-align: left;
+}
+
+@keyframes name-shift {
+	0%, 90%, 100% { transform: none; filter: none; }
+	91% { transform: translate(-4px, 2px); filter: hue-rotate(90deg); }
+	93% { transform: translate(4px, -2px) skewX(-6deg); filter: hue-rotate(-90deg); }
+	95% { transform: translate(-2px, 0); filter: none; }
+	97% { transform: translate(2px, 1px) skewX(4deg); filter: none; }
+}
+
+@keyframes glitch-a {
+	0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+	91% { clip-path: inset(10% 0 60% 0); transform: translate(-4px, 0); }
+	93% { clip-path: inset(55% 0 15% 0); transform: translate(4px, 0); }
+	95% { clip-path: inset(30% 0 40% 0); transform: translate(-3px, 0); }
+	97% { clip-path: inset(75% 0 5% 0);  transform: translate(3px, 0); }
+}
+
+@keyframes glitch-b {
+	0%, 91%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+	92% { clip-path: inset(60% 0 10% 0); transform: translate(4px, 0); }
+	94% { clip-path: inset(15% 0 55% 0); transform: translate(-4px, 0); }
+	96% { clip-path: inset(40% 0 30% 0); transform: translate(3px, 0); }
+	98% { clip-path: inset(5% 0 80% 0);  transform: translate(-3px, 0); }
+}
+
+/* Avatar: purple tint, glow, and an occasional glitch */
+#avi {
+	filter: grayscale(1) sepia(1) hue-rotate(235deg) saturate(2.5) contrast(1.1)
+	        drop-shadow(0 0 18px rgba(180, 76, 255, .9));
+	animation: avi-glitch 4s infinite steps(1);
+}
+
+@keyframes avi-glitch {
+	0%, 92%, 100% { transform: none; filter: grayscale(1) sepia(1) hue-rotate(235deg) saturate(2.5) contrast(1.1) drop-shadow(0 0 18px rgba(180, 76, 255, .9)); }
+	93% { transform: translate(-4px, 2px); filter: hue-rotate(90deg) saturate(2); }
+	95% { transform: translate(4px, -2px); filter: hue-rotate(-90deg); }
+	97% { transform: translate(-2px, 0); filter: drop-shadow(3px 0 #00e5ff) drop-shadow(-3px 0 #ff2d95); }
+}
+
+/* Red/cyan color split on all text */
+body {
+	text-shadow: 1px 0 rgba(255, 0, 200, .45), -1px 0 rgba(0, 229, 255, .35);
+}
+
+/* Glowing edge inside the banners */
+.bg1,
+.bg2 {
+	box-shadow: inset 0 0 120px rgba(180, 76, 255, .45);
+}
+
+/* Scanlines over the whole page */
+body::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 9999;
+	background: repeating-linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0) 0,
+		rgba(0, 0, 0, 0) 2px,
+		rgba(0, 0, 0, .28) 3px
+	);
+	animation: flicker 5s infinite steps(1);
+}
+
+@keyframes flicker {
+	0%, 100% { opacity: 1; }
+	50% { opacity: .75; }
+	52% { opacity: 1; }
+	80% { opacity: .9; }
+}
+
+/* A faint bar that sweeps down the screen */
+body::before {
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: -25vh;
+	height: 25vh;
+	pointer-events: none;
+	z-index: 9998;
+	background: linear-gradient(to bottom, transparent, rgba(180, 76, 255, .15), transparent);
+	animation: sweep 7s linear infinite;
+}
+
+@keyframes sweep {
+	to { top: 100vh; }
+}
+
+/* Respect people who turn animations off */
+@media (prefers-reduced-motion: reduce) {
+	.glitch, .glitch::before, .glitch::after, #avi, body::before, body::after { animation: none; }
+}
+
+
+/* ================= Glitching social icons ================= */
+
+.social img {
+	animation: icon-glitch 4s infinite steps(1);
+}
+
+/* different lengths and delays so the icons never glitch together */
+.social a:nth-of-type(6n+1) img { animation-duration: 1.4s;  animation-delay: 0s; }
+.social a:nth-of-type(6n+2) img { animation-duration: 1.7s;  animation-delay: .35s; }
+.social a:nth-of-type(6n+3) img { animation-duration: 1.25s; animation-delay: .8s; }
+.social a:nth-of-type(6n+4) img { animation-duration: 1.9s;  animation-delay: .15s; }
+.social a:nth-of-type(6n+5) img { animation-duration: 1.55s; animation-delay: .55s; }
+.social a:nth-of-type(6n+6) img { animation-duration: 2.1s;  animation-delay: .95s; }
+
+/* faster bursts while hovering (must stay after the rules above) */
+.social a:hover img {
+	opacity: 1;
+	animation: icon-glitch .9s infinite steps(1);
+}
+
+@keyframes icon-glitch {
+	0%, 66%, 100% { transform: translate(0); filter: invert(1); }   /* rest */
+	67% { transform: translate(-2px, 1px); filter: invert(1) drop-shadow(2px 0 #00e5ff) drop-shadow(-2px 0 #ff2d95); }
+	71% { transform: translate(2px, -1px); filter: invert(1) hue-rotate(90deg); }
+	75% { transform: translate(-1px, 0) skewX(12deg); filter: invert(1) drop-shadow(-2px 0 #00e5ff) drop-shadow(2px 0 #ff2d95); }
+	79% { transform: translate(2px, 1px); filter: invert(1) hue-rotate(-90deg); }
+	83% { transform: translate(0); filter: invert(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.social img,
+	.social a:hover img { animation: none; }
+}
